@@ -6,11 +6,11 @@ README for using the matlab code
 
 ### 1.1 The \*.m files
 
+*_loadmatrix.m_*: The top level entry
+
 ldt\_matrix.m
 
 leakage.m: Function to compute the leakage power
-
-loadmatrix.m: The top level entry
 
 lp\_optimum.m: The relaxed linear programming algorithm
 

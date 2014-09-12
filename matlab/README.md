@@ -7,11 +7,13 @@ README for using the matlab code
 ### 1.1 The \*.m files
 
 * **_loadmatrix.m_**:
+
 The top level entry
 
 * **_ldt\_matrix.m_**:
+
 Returns the partial thermal resistance matrix and constant term.
-They are the matrix _[g<sub>ij</sub>]_ and vector _D_ in equation (2)
+They are the matrix _G = [g<sub>ij</sub>]_ and vector _D_ in equation (2)
 
 * **_leakage.m_**: Function to compute the leakage power
 
@@ -30,10 +32,17 @@ They are the matrix _[g<sub>ij</sub>]_ and vector _D_ in equation (2)
 * matrix\_b.txt
 * matrix6by6.txt
 
-These two files are actually the same. They are thermal conductance matrix
+These two files are actually the same. They are thermal **_conductance_** matrix
 generated based on the configuration described in section 6 of this paper.
+
+* DBAmapping.txt
+
+This file is obtained from hotspot simulation. I need to use it to calculate the vector _D_ in equation (2)
+This file contains the power consumption of all thermal nodes (interface, heat spreader, etc).
 
 2. How to produce the results in the paper
 ------------------------------------------
 
 ### 2.1 Table 4
+
+

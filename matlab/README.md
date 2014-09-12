@@ -64,11 +64,6 @@ A = load('data/debug_out_uniform.txt');
 Just change the peak temperature as following:
 ```matlab
 T_target = 273.15+80;
-  A = load('data/corner_1hop_uniform.txt');
-% A = load('data/corner_1hop_cooltriangle.txt');
-% A = load('data/corner_1hop_hottriangle.txt');
-% A = load('data/corner_1hop_norm.txt');
-% A = load('data/corner_1hop_invnorm.txt');
 ```
 Select one of the task mapping file:
 ```matlab
@@ -80,3 +75,5 @@ Select one of the task mapping file:
 ```
 Then run the loadmatrix.m script.
 The results are in the **_r\_final_** and **_t\_mean_** vectors.
+
+### 2.3 Table 4

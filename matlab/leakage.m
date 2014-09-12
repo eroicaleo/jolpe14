@@ -1,4 +1,4 @@
-function [T_Total P_Dyn_Total] = leakage(rconvection, mappingfile, Random_Permutation);
+function [T_Total P_Dyn_Total T_Mean] = leakage(rconvection, mappingfile, Random_Permutation);
 
 K = 1;
 Ref_T_Low = 273.15+60;
@@ -58,6 +58,7 @@ P_amb_diff = g_amb_diff.*298.15;
 P_Dyn = P_Dyn+P_amb_diff;
 P_Dyn_Total = [];
 T_Total = [];
+T_Mean = [];
 
 for i = 1:size(Random_Permutation, 2)
     P_Dyn_Rand = P_Dyn;
@@ -67,8 +68,10 @@ for i = 1:size(Random_Permutation, 2)
     T_Rand = (g-A)\(P_Dyn_Rand+B);
     P_Rand_Dyn_Total = sum(P_Dyn_Rand(1:NUM_OF_CORES)+(a*T_Rand(1:NUM_OF_CORES)+b));
     T_Rand_Total = max(T_Rand(1:NUM_OF_CORES));
-    P_Dyn_Total = [P_Dyn_Total; P_Rand_Dyn_Total]; 
+    T_Mean_Total = mean(T_Rand(1:NUM_OF_CORES));
+    P_Dyn_Total = [P_Dyn_Total; P_Rand_Dyn_Total];
     T_Total = [T_Total; T_Rand_Total];
+    T_Mean = [T_Mean; T_Mean_Total];
 end
 
 % If we provide some random permutation
@@ -88,7 +91,7 @@ T = (g-A)\(P_Dyn+B);
 P_Dyn_Total = sum(P_Dyn(1:NUM_OF_CORES)+(a*T(1:NUM_OF_CORES)+b));
 % T_Total = sum(T(1:NUM_OF_CORES));
 T_Total = max(T(1:NUM_OF_CORES));
-F = [T_Total P_Dyn_Total];
+T_Mean = mean(T(1:NUM_OF_CORES));
 
 Heuristic_Permutation = [];
 Heuristic_Permutation = [Heuristic_Permutation load('lp_power.txt')];
@@ -102,8 +105,10 @@ for i = 1:size(Heuristic_Permutation, 2)
     T_Rand = (g-A)\(P_Dyn_Rand+B);
     P_Rand_Dyn_Total = sum(P_Dyn_Rand(1:NUM_OF_CORES)+(a*T_Rand(1:NUM_OF_CORES)+b));
     T_Rand_Total = max(T_Rand(1:NUM_OF_CORES));
-    P_Dyn_Total = [P_Dyn_Total; P_Rand_Dyn_Total]; 
+    T_Rand_Mean = mean(T_Rand(1:NUM_OF_CORES));
+    P_Dyn_Total = [P_Dyn_Total; P_Rand_Dyn_Total];
     T_Total = [T_Total; T_Rand_Total];
+    T_Mean = [T_Mean; T_Rand_Mean];
 end
 
 end

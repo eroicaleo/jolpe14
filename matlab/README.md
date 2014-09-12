@@ -37,12 +37,17 @@ generated based on the configuration described in section 6 of this paper.
 
 * DBAmapping.txt
 
-This file is obtained from hotspot simulation. I need to use it to calculate the vector _D_ in equation (2)
-This file contains the power consumption of all thermal nodes (interface, heat spreader, etc).
+This file is obtained from hotspot simulation. I need to use it to calculate the vector _D_ in equation (2).
+This file contains the power consumption of all thermal nodes (core, interface, heat spreader, etc).
+It is called DBAmapping.txt, because it is distributed balancing algorithm.
 
 2. How to produce the results in the paper
 ------------------------------------------
 
 ### 2.1 Table 4
 
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
 

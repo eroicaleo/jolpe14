@@ -98,6 +98,7 @@ Heuristic_Permutation = [Heuristic_Permutation load('lp_power.txt')];
 Heuristic_Permutation = [Heuristic_Permutation load('lsap1_power.txt')];
 Heuristic_Permutation = [Heuristic_Permutation load('lsap2_power.txt')];
 Heuristic_Permutation = [Heuristic_Permutation load('randopt_power.txt')];
+Heuristic_Permutation = [Heuristic_Permutation load('base1_power.txt')];
 
 for i = 1:size(Heuristic_Permutation, 2)
     P_Dyn_Rand = P_Dyn;

@@ -1,3 +1,4 @@
+function [Power_Breakdown r_final p_chip t_mean] = loadmatrix(T_target, task_pattern)
 %%----------------------------------------------------------------------------------------------------
 %% Load the thermal conductance matrix
 %%----------------------------------------------------------------------------------------------------
@@ -107,7 +108,7 @@ for i = 1 : num_of_random_groups
     Random_Permutation(:, i) = randperm(num_of_cores);
 end
 
-% Now compute the system power based on new task allocation
+% Now find the best random task mapping
 [T_Total P_Dyn_Total T_Mean] = leakage(rconvection_ref, 'hotspot_input/DBAmapping.txt', Random_Permutation);
 
 r_final = zeros(num_of_policies, 1);
@@ -143,3 +144,5 @@ P_total = p_chip + Fan_power;
 P_Dyn = repmat(sum(P), num_of_policies, 1);
 P_Leak = p_chip - P_Dyn;
 Power_Breakdown = [P_Dyn P_Leak Fan_power];
+
+end

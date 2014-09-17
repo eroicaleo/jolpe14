@@ -135,3 +135,13 @@ fprintf(fileID, '\n');
 fprintf(fileID, '%-20s', 'Impr. vs base1');
 fprintf(fileID, '%-20.4f', impr_vs_base);
 fclose(fileID);
+
+%%----------------------------------------------------------------------------------------------------
+%% Table 3 Overall system power consumption comparison under different temperature constraints
+%%----------------------------------------------------------------------------------------------------
+fileID = fopen('table3.txt','w');
+fprintf(fileID, '%-20s%-20s%-20s%-20s\n', 'Constraint', '80', '85', '90');
+fprintf(fileID, '%-20s%-20.2f%-20.2f%-20.2f\n', 'rand', results_cell{1, 1}{1, 3}(rand_ix, 1), results_cell_85{1, 1}{1, 3}(rand_ix, 1), results_cell_90{1, 1}{1, 3}(rand_ix, 1));
+fprintf(fileID, '%-20s%-20.2f%-20.2f%-20.2f\n', 'base', results_cell{1, 1}{1, 3}(base_ix, 1), results_cell_85{1, 1}{1, 3}(base_ix, 1), results_cell_90{1, 1}{1, 3}(base_ix, 1));
+fprintf(fileID, '%-20s%-20.2f%-20.2f%-20.2f\n', 'matm', results_cell{1, 1}{1, 3}(matm_ix, 1), results_cell_85{1, 1}{1, 3}(matm_ix, 1), results_cell_90{1, 1}{1, 3}(matm_ix, 1));
+fclose(fileID);

@@ -1,4 +1,4 @@
-function [Power_Breakdown r_final p_chip t_mean] = loadmatrix(T_target, task_pattern)
+function [Power_Breakdown r_final P_total p_chip t_mean] = loadmatrix(T_target, task_pattern)
 %%----------------------------------------------------------------------------------------------------
 %% Load the thermal conductance matrix
 %%----------------------------------------------------------------------------------------------------

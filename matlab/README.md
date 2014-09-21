@@ -30,6 +30,10 @@ Function to compute the leakage power
 
 ### 1.2 The input data (under ./data/ sub directory)
 
+* **_debug\_out\_\*.txt_**:
+
+These files are task mapping files after applying the MATM algorithm.
+
 ### 1.3 The hotspot thermal model (under ./hotspot\_input/ sub directory)
 
 * matrix\_b.txt
